@@ -1,0 +1,53 @@
+EMPLOYEE
+empid	        empname	        managerid	deptid	        salary
+1				Ram					0			1			6000
+2				Aman				0			5			6000
+3				Raghu				1			1			2000
+13				Dev					2			5			5000
+11				Aarti				2			1			5000
+9				Pinku				1			5			3000
+8				Sachin				3			1			3500
+7				Ramesh				2			5			NULL
+12				Raghu				2			5			2000
+3				Raghu				1			1			2000
+
+select e.deptid,max(e.salary) as Max_Salary
+from employee e
+group by deptid
+[13:43] Talukdar, Sunil (Unverified)
+DEPARTMENT
+
+Deptid	Deptname
+
+1		IT
+
+2		Admin
+
+5		HR
+[13:44] Talukdar, Sunil (Unverified)
+Maximum salary for each department and department name
+
+select d.deptname,max(e.salary) as Max_Salary
+from employee
+join department d
+on e.deptid=d.deptid
+group by deptname
+
+//Rank of each row based on salary
+
+select e.empid,e.empname,e.deptid,e.deptname,e.salary,
+RANK() over (order by saary)from employee e
+
+
+  //int[] arr1 = {4,7,9,11};
+    //	int[] arr2 = {1,2,5,8,9,10};
+    //	merge the above sorted arrays into a third array in a sorted manner;
+
+    //Shift negative elements to the left of the array
+    //int[] array = {4,-3,8,9,-1,5,2,-10,-11,45};
+    //expected output: {-3,-1,-10,-11,4,8,9,5,2,45};
+
+      //      1. don't sort the array
+        //    2. don't declare new array or collections
+          //  3. don't use any library function
+
